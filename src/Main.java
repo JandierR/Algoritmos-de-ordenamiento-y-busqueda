@@ -62,7 +62,7 @@ public class Main {
     public static void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1 -> seleccion();
-//            case 2 -> inserccion();
+            case 2 -> inserccion();
 //            case 3 -> burbuja();
 //            case 4 -> mezcla();
 //            case 5 -> rapido();
@@ -88,6 +88,37 @@ public class Main {
             temp = palabras[i];
             palabras[i] = palabras[min];
             palabras[min] = temp;
+        }
+    }
+
+    public static void inserccion() {
+        int n = palabras.length;
+        String[] palabrasNuevas = new String[n];
+        int posicionInsertar = 0;
+        int cantidadInsertados = 0;
+
+        for (int i = 0; i < n; i++) {
+            //Se ingresa el primer valor al arreglo nuevo desde el arreglo original.
+            if (i == 0) {
+                palabrasNuevas[i] = palabras[i];
+            } else {
+                    posicionInsertar = cantidadInsertados;
+                for (int j = 0; j < cantidadInsertados; j++) {
+                    if (palabras[i].compareTo(palabrasNuevas[j]) < 0) {
+                        posicionInsertar = j;
+                        break;
+                    }
+                }
+                for (int k = cantidadInsertados; k > posicionInsertar; k--) {
+                    palabrasNuevas[k] = palabrasNuevas[k - 1];
+                }
+                palabrasNuevas[posicionInsertar] = palabras[i];
+            }
+            cantidadInsertados++;
+        }
+
+        for (int c = 0; c < palabras.length; c++) {
+            palabras[c] = palabrasNuevas[c];
         }
     }
 }
