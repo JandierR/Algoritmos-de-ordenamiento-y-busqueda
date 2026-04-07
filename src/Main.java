@@ -36,5 +36,31 @@ public class Main {
         }
     }
 
+    public void imprimirMenu() {
+        System.out.println("""
+                -1. Selección
+                -2. Inserción
+                -3. Burbuja
+                -4. Mezcla
+                -5. Rapido
+                -0. Salir""");
+    }
+
+    public int leerOpcion() throws IOException {
+        return Integer.parseInt(in.readLine());
+    }
+
+    public void procesarOpcion(int opcion) {
+        switch (opcion) {
+            case 1 -> seleccion();
+            case 2 -> inserccion();
+            case 3 -> burbuja();
+            case 4 -> mezcla();
+            case 5 -> rapido();
+            case 0 -> System.out.println("Saliendo del sistema...");
+            default -> System.out.println("Valor invalido!");
+        }
+    }
+
 
 }
