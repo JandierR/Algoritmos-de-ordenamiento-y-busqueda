@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main {
     private static String[] palabras;
@@ -9,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         llenarArreglo();
 
-        System.out.println(Arrays.toString(palabras));
+        mostrarArreglo();
     }
 
     public static void llenarArreglo() throws IOException {
@@ -29,6 +28,13 @@ public class Main {
         System.out.println("Enhorabuena. Ha llenado el arreglo de palabras!!!");
     }
 
+    public static void mostrarArreglo() {
+        System.out.println();
+        System.out.println("Mostrando arreglo...");
+        for (int i = 0; i < palabras.length; i++) {
+            System.out.println(palabras[i]);
+        }
+    }
 
 
 }
