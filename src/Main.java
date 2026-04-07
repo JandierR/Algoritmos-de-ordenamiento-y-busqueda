@@ -9,6 +9,15 @@ public class Main {
         llenarArreglo();
 
         mostrarArreglo();
+
+        imprimirMenu();
+        int opcion = leerOpcion();
+
+        procesarOpcion(opcion);
+
+        System.out.println("Resultado");
+        mostrarArreglo();
+
     }
 
     public static void llenarArreglo() throws IOException {
@@ -36,7 +45,7 @@ public class Main {
         }
     }
 
-    public void imprimirMenu() {
+    public static void imprimirMenu() {
         System.out.println("""
                 -1. Selección
                 -2. Inserción
@@ -46,21 +55,39 @@ public class Main {
                 -0. Salir""");
     }
 
-    public int leerOpcion() throws IOException {
+    public static int leerOpcion() throws IOException {
         return Integer.parseInt(in.readLine());
     }
 
-    public void procesarOpcion(int opcion) {
+    public static void procesarOpcion(int opcion) {
         switch (opcion) {
             case 1 -> seleccion();
-            case 2 -> inserccion();
-            case 3 -> burbuja();
-            case 4 -> mezcla();
-            case 5 -> rapido();
+//            case 2 -> inserccion();
+//            case 3 -> burbuja();
+//            case 4 -> mezcla();
+//            case 5 -> rapido();
             case 0 -> System.out.println("Saliendo del sistema...");
             default -> System.out.println("Valor invalido!");
         }
     }
 
+    public static void seleccion() {
+        int n = palabras.length;
+        int min;
+        String temp;
 
+        for (int i = 0; i < n - 1; i++) {
+            min = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (palabras[j].compareTo(palabras[min]) < 0) {
+                    min = j;
+                }
+            }
+
+            temp = palabras[i];
+            palabras[i] = palabras[min];
+            palabras[min] = temp;
+        }
+    }
 }
