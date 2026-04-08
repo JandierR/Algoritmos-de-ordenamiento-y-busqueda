@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         llenarArreglo();
 
+        System.out.println("Arreglo original");
         mostrarArreglo();
 
         imprimirMenu();
@@ -66,6 +67,7 @@ public class Main {
 //            case 3 -> burbuja();
 //            case 4 -> mezcla();
 //            case 5 -> rapido();
+            case 3 -> burbuja();
             case 0 -> System.out.println("Saliendo del sistema...");
             default -> System.out.println("Valor invalido!");
         }
@@ -120,5 +122,24 @@ public class Main {
         for (int c = 0; c < palabras.length; c++) {
             palabras[c] = palabrasNuevas[c];
         }
+    }
+
+    public static void burbuja() {
+        int n = palabras.length;
+        String temp;
+
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (palabras[j].compareTo(palabras[j + 1]) > 0) {
+                    temp = palabras[j];
+                    palabras[j] = palabras[j + 1];
+                    palabras[j + 1] = temp;
+                }
+            }
+        }
+
+        //Complejidad de tiempo:
+        //El mejor caso es O(n)
+        //El pero caos es O(n al cuadrado)
     }
 }
