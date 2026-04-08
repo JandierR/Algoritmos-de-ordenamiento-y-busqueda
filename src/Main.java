@@ -341,5 +341,14 @@ public class Main {
         System.out.println("Palabra = " + palabras[pivote]);
 
 
+        /*
+        La busqueda binaria busca la palabra ingresada en un arreglo ya ordenado
+        dividiendo el intervalo de busqueda a la mitad, las veces necesarias.
+
+        Complejidad temporal:
+        Mejor caso: O(1)
+        Caso promedio: O(log n)
+        Peor caso: O(log n)
+         */
     }
 }
